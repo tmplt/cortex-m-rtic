@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../preface.html">Введение</a></li><li class="chapter-item expanded "><a href="../by-example.html"><strong aria-hidden="true">1.</strong> RTIC в примерах</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../by-example/app.html"><strong aria-hidden="true">1.1.</strong> Атрибут app</a></li><li class="chapter-item expanded "><a href="../by-example/resources.html"><strong aria-hidden="true">1.2.</strong> Ресурсы</a></li><li class="chapter-item expanded "><a href="../by-example/tasks.html"><strong aria-hidden="true">1.3.</strong> Задачи</a></li><li class="chapter-item expanded "><a href="../by-example/timer-queue.html"><strong aria-hidden="true">1.4.</strong> Очередь таймера</a></li><li class="chapter-item expanded "><a href="../by-example/singletons.html"><strong aria-hidden="true">1.5.</strong> Одиночки</a></li><li class="chapter-item expanded "><a href="../by-example/types-send-sync.html"><strong aria-hidden="true">1.6.</strong> Типы, Send и Sync</a></li><li class="chapter-item expanded "><a href="../by-example/new.html" class="active"><strong aria-hidden="true">1.7.</strong> Создание нового проекта</a></li><li class="chapter-item expanded "><a href="../by-example/tips.html"><strong aria-hidden="true">1.8.</strong> Советы и хитрости</a></li></ol></li><li class="chapter-item expanded "><a href="../internals.html"><strong aria-hidden="true">2.</strong> Под капотом</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../internals/ceilings.html"><strong aria-hidden="true">2.1.</strong> Ceiling analysis</a></li><li class="chapter-item expanded "><a href="../internals/tasks.html"><strong aria-hidden="true">2.2.</strong> Диспетчер задач</a></li><li class="chapter-item expanded "><a href="../internals/timer-queue.html"><strong aria-hidden="true">2.3.</strong> Очередь таймера</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../preface.html">Введение</a></li><li class="chapter-item expanded "><a href="../by-example.html"><strong aria-hidden="true">1.</strong> RTIC в примерах</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../by-example/app.html"><strong aria-hidden="true">1.1.</strong> Атрибут app</a></li><li class="chapter-item expanded "><a href="../by-example/resources.html"><strong aria-hidden="true">1.2.</strong> Ресурсы</a></li><li class="chapter-item expanded "><a href="../by-example/tasks.html"><strong aria-hidden="true">1.3.</strong> Программные задачи</a></li><li class="chapter-item expanded "><a href="../by-example/timer-queue.html"><strong aria-hidden="true">1.4.</strong> Очередь таймера</a></li><li class="chapter-item expanded "><a href="../by-example/types-send-sync.html"><strong aria-hidden="true">1.5.</strong> Типы, Send и Sync</a></li><li class="chapter-item expanded "><a href="../by-example/new.html" class="active"><strong aria-hidden="true">1.6.</strong> Создание нового проекта</a></li><li class="chapter-item expanded "><a href="../by-example/tips.html"><strong aria-hidden="true">1.7.</strong> Советы и хитрости</a></li></ol></li><li class="chapter-item expanded "><a href="../migration.html"><strong aria-hidden="true">2.</strong> Инструкции по миграции</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../migration/migration_v5.html"><strong aria-hidden="true">2.1.</strong> v0.5.x на v0.6.x</a></li><li class="chapter-item expanded "><a href="../migration/migration_v4.html"><strong aria-hidden="true">2.2.</strong> v0.4.x на v0.5.x</a></li><li class="chapter-item expanded "><a href="../migration/migration_rtic.html"><strong aria-hidden="true">2.3.</strong> RTFM на RTIC</a></li></ol></li><li class="chapter-item expanded "><a href="../internals.html"><strong aria-hidden="true">3.</strong> Под капотом</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../internals/interrupt-configuration.html"><strong aria-hidden="true">3.1.</strong> Настройка прерываний</a></li><li class="chapter-item expanded "><a href="../internals/non-reentrancy.html"><strong aria-hidden="true">3.2.</strong> Нереентерабельнось</a></li><li class="chapter-item expanded "><a href="../internals/access.html"><strong aria-hidden="true">3.3.</strong> Контроль доступа</a></li><li class="chapter-item expanded "><a href="../internals/late-resources.html"><strong aria-hidden="true">3.4.</strong> Поздние ресурсы</a></li><li class="chapter-item expanded "><a href="../internals/critical-sections.html"><strong aria-hidden="true">3.5.</strong> Критические секции</a></li><li class="chapter-item expanded "><a href="../internals/ceilings.html"><strong aria-hidden="true">3.6.</strong> Анализ приоритетов</a></li><li class="chapter-item expanded "><a href="../internals/tasks.html"><strong aria-hidden="true">3.7.</strong> Программные задачи</a></li><li class="chapter-item expanded "><a href="../internals/timer-queue.html"><strong aria-hidden="true">3.8.</strong> Очередь таймера</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -135,6 +135,10 @@
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         
+                        
+                        <a href="https://github.com/rtic-rs/cortex-m-rtic" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
                         
                     </div>
                 </div>
@@ -177,33 +181,85 @@ $ cargo generate \
 $ # следуйте остальным инструкциям
 </code></pre>
 <ol start="2">
-<li>Добавьте крейт устройства, сгенерированный с помощью <a href="https://crates.io/crates/svd2rust"><code>svd2rust</code></a> <strong>v0.14.x</strong>,
-или библиотеку отладочной платы, у которой в зависимостях одно из устройств.
+<li>Добавьте крейт доступа к периферии (PAC), сгенерированный с помощью<a href="https://crates.io/crates/svd2rust"><code>svd2rust</code></a>
+<strong>v0.14.x</strong>, или крейт отладочной платы, у которой в зависимостях один из таких PAC'ов.
 Убедитесь, что опция <code>rt</code> крейта включена.</li>
 </ol>
-<p>В этом примере я покажу использование крейта устройства <a href="https://crates.io/crates/lm3s6965"><code>lm3s6965</code></a>.
+<p>В этом примере я буду использовать крейт устройства <a href="https://crates.io/crates/lm3s6965"><code>lm3s6965</code></a>.
 Эта библиотека не имеет Cargo-опции <code>rt</code>; эта опция всегда включена.</p>
 <p>Этот крейт устройства предоставляет линковочный скрипт с макетом памяти
-целевого устройства, поэтому <code>memory.x</code> и <code>build.rs</code> не нужно удалять.</p>
+целевого устройства, поэтому <code>memory.x</code> и <code>build.rs</code> нужно удалить.</p>
 <pre><code class="language-console">$ cargo add lm3s6965 --vers 0.1.3
 
 $ rm memory.x build.rs
 </code></pre>
 <ol start="3">
-<li>Добавьте библиотеку <code>cortex-m-rtic</code> как зависимость, и если необходимо,
-включите опцию <code>timer-queue</code>.</li>
+<li>Добавьте крейт <code>cortex-m-rtic</code> как зависимость.</li>
 </ol>
-<pre><code class="language-console">$ cargo add cortex-m-rtic --allow-prerelease --upgrade=none
+<pre><code class="language-console">$ cargo add cortex-m-rtic --allow-prerelease
 </code></pre>
 <ol start="4">
-<li>Напишите программу RTIC.</li>
+<li>Напишите свою RTIC программу.</li>
 </ol>
-<p>Здесь я буду использовать пример <code>init</code> из библиотеки <code>cortex-m-rtic</code>.</p>
-<pre><code class="language-console">$ curl \
-    -L https://github.com/japaric/cortex-m-rtic/raw/v0.4.0-beta.1/examples/init.rs \
-    &gt; src/main.rs
+<p>Здесь я буду использовать пример <code>init</code> из крейта <code>cortex-m-rtic</code>.</p>
+<p>Примеры находтся в папке <code>examples</code>, а содержание <code>init.rs</code> показано здесь:</p>
+<pre><code class="language-console">//! examples/init.rs
+
+#![deny(unsafe_code)]
+#![deny(warnings)]
+#![no_main]
+#![no_std]
+
+use panic_semihosting as _;
+
+#[rtic::app(device = lm3s6965, peripherals = true)]
+mod app {
+    use cortex_m_semihosting::{debug, hprintln};
+
+    #[init]
+    fn init(cx: init::Context) -&gt; (init::LateResources, init::Monotonics) {
+        static mut X: u32 = 0;
+
+        // Cortex-M peripherals
+        let _core: cortex_m::Peripherals = cx.core;
+
+        // Device specific peripherals
+        let _device: lm3s6965::Peripherals = cx.device;
+
+        // Safe access to local `static mut` variable
+        let _x: &amp;'static mut u32 = X;
+
+        // Access to the critical section token,
+        // to indicate that this is a critical seciton
+        let _cs_token: bare_metal::CriticalSection = cx.cs;
+
+        hprintln!(&quot;init&quot;).unwrap();
+
+        debug::exit(debug::EXIT_SUCCESS);
+
+        (init::LateResources {}, init::Monotonics())
+    }
+}
 </code></pre>
-<p>Этот пример зависит от библиотеки <code>panic-semihosting</code>:</p>
+<p>Пример <code>init</code> использует устройство <code>lm3s6965</code>. Не забудьте настроить аргумент <code>device</code>
+в атрибуте макроса app так, чтобы он соответствовал пути к PAC-крейту, если он отличается,
+а также добавить перифериб и другие аргументы если необходимо.
+Несмотря на то, что в программе могут использоваться псевдонимы типов,
+здесь необходимо указать полный путь (из корня крейта). Для многих устройств,
+есть общий подход в крейтах реализации HAL (с псевдонимом <code>hal</code>) и крейтах поддержки
+отладочных плат реекспортиорвать PAC как <code>pac</code>, что приводит нас к образцу, аналогичному
+приведенному ниже:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use abcd123_hal as hal;
+//...
+
+#[rtic::app(device = crate::hal::pac, peripherals = true, monotonic = rtic::cyccnt::CYCCNT)]
+mod app { /*...*/ }
+<span class="boring">}
+</span></code></pre></pre>
+<p>Пример <code>init</code> также зависит от крейта <code>panic-semihosting</code>:</p>
 <pre><code class="language-console">$ cargo add panic-semihosting
 </code></pre>
 <ol start="5">
@@ -211,7 +267,7 @@ $ rm memory.x build.rs
 </ol>
 <pre><code class="language-console">$ # ПРИМЕЧАНИЕ: Я раскомментировал опцию `runner` в `.cargo/config`
 $ cargo run
-init```
+init
 </code></pre>
 
                     </main>

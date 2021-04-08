@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Ceiling analysis - Real-Time Interrupt-driven Concurrency</title>
+        <title>Анализ приоритетов - Real-Time Interrupt-driven Concurrency</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../preface.html">Введение</a></li><li class="chapter-item expanded "><a href="../by-example.html"><strong aria-hidden="true">1.</strong> RTIC в примерах</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../by-example/app.html"><strong aria-hidden="true">1.1.</strong> Атрибут app</a></li><li class="chapter-item expanded "><a href="../by-example/resources.html"><strong aria-hidden="true">1.2.</strong> Ресурсы</a></li><li class="chapter-item expanded "><a href="../by-example/tasks.html"><strong aria-hidden="true">1.3.</strong> Задачи</a></li><li class="chapter-item expanded "><a href="../by-example/timer-queue.html"><strong aria-hidden="true">1.4.</strong> Очередь таймера</a></li><li class="chapter-item expanded "><a href="../by-example/singletons.html"><strong aria-hidden="true">1.5.</strong> Одиночки</a></li><li class="chapter-item expanded "><a href="../by-example/types-send-sync.html"><strong aria-hidden="true">1.6.</strong> Типы, Send и Sync</a></li><li class="chapter-item expanded "><a href="../by-example/new.html"><strong aria-hidden="true">1.7.</strong> Создание нового проекта</a></li><li class="chapter-item expanded "><a href="../by-example/tips.html"><strong aria-hidden="true">1.8.</strong> Советы и хитрости</a></li></ol></li><li class="chapter-item expanded "><a href="../internals.html"><strong aria-hidden="true">2.</strong> Под капотом</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../internals/ceilings.html" class="active"><strong aria-hidden="true">2.1.</strong> Ceiling analysis</a></li><li class="chapter-item expanded "><a href="../internals/tasks.html"><strong aria-hidden="true">2.2.</strong> Диспетчер задач</a></li><li class="chapter-item expanded "><a href="../internals/timer-queue.html"><strong aria-hidden="true">2.3.</strong> Очередь таймера</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../preface.html">Введение</a></li><li class="chapter-item expanded "><a href="../by-example.html"><strong aria-hidden="true">1.</strong> RTIC в примерах</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../by-example/app.html"><strong aria-hidden="true">1.1.</strong> Атрибут app</a></li><li class="chapter-item expanded "><a href="../by-example/resources.html"><strong aria-hidden="true">1.2.</strong> Ресурсы</a></li><li class="chapter-item expanded "><a href="../by-example/tasks.html"><strong aria-hidden="true">1.3.</strong> Программные задачи</a></li><li class="chapter-item expanded "><a href="../by-example/timer-queue.html"><strong aria-hidden="true">1.4.</strong> Очередь таймера</a></li><li class="chapter-item expanded "><a href="../by-example/types-send-sync.html"><strong aria-hidden="true">1.5.</strong> Типы, Send и Sync</a></li><li class="chapter-item expanded "><a href="../by-example/new.html"><strong aria-hidden="true">1.6.</strong> Создание нового проекта</a></li><li class="chapter-item expanded "><a href="../by-example/tips.html"><strong aria-hidden="true">1.7.</strong> Советы и хитрости</a></li></ol></li><li class="chapter-item expanded "><a href="../migration.html"><strong aria-hidden="true">2.</strong> Инструкции по миграции</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../migration/migration_v5.html"><strong aria-hidden="true">2.1.</strong> v0.5.x на v0.6.x</a></li><li class="chapter-item expanded "><a href="../migration/migration_v4.html"><strong aria-hidden="true">2.2.</strong> v0.4.x на v0.5.x</a></li><li class="chapter-item expanded "><a href="../migration/migration_rtic.html"><strong aria-hidden="true">2.3.</strong> RTFM на RTIC</a></li></ol></li><li class="chapter-item expanded "><a href="../internals.html"><strong aria-hidden="true">3.</strong> Под капотом</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../internals/interrupt-configuration.html"><strong aria-hidden="true">3.1.</strong> Настройка прерываний</a></li><li class="chapter-item expanded "><a href="../internals/non-reentrancy.html"><strong aria-hidden="true">3.2.</strong> Нереентерабельнось</a></li><li class="chapter-item expanded "><a href="../internals/access.html"><strong aria-hidden="true">3.3.</strong> Контроль доступа</a></li><li class="chapter-item expanded "><a href="../internals/late-resources.html"><strong aria-hidden="true">3.4.</strong> Поздние ресурсы</a></li><li class="chapter-item expanded "><a href="../internals/critical-sections.html"><strong aria-hidden="true">3.5.</strong> Критические секции</a></li><li class="chapter-item expanded "><a href="../internals/ceilings.html" class="active"><strong aria-hidden="true">3.6.</strong> Анализ приоритетов</a></li><li class="chapter-item expanded "><a href="../internals/tasks.html"><strong aria-hidden="true">3.7.</strong> Программные задачи</a></li><li class="chapter-item expanded "><a href="../internals/timer-queue.html"><strong aria-hidden="true">3.8.</strong> Очередь таймера</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -136,6 +136,10 @@
                         </a>
                         
                         
+                        <a href="https://github.com/rtic-rs/cortex-m-rtic" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
                     </div>
                 </div>
 
@@ -163,15 +167,102 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="ceiling-analysis"><a class="header" href="#ceiling-analysis">Ceiling analysis</a></h1>
-<p><strong>TODO</strong></p>
+                        <h1 id="Анализ-приоритетов"><a class="header" href="#Анализ-приоритетов">Анализ приоритетов</a></h1>
+<p><em>Поиск максимального приоритета</em> ресурса (<em>ceiling</em>) - поиск динамического
+приоритета, который любая задача должна иметь, чтобы безопасно работать с
+памятью ресурсов. Анализ приоритетов - относительно прост,
+но критичен для безопасности памяти RTIC программ.</p>
+<p>Для расчета максимального приоритета ресурса мы должны сначала составить
+список задач, имеющих доступ к ресурсу -- так как фреймворк RTIC
+форсирует контроль доступа к ресурсам на этапе компиляции, он
+также имеет доступ к этой информации на этапе компиляции.
+Максимальный приоритет ресурса - просто наивысший логический приоритет
+среди этих задач.</p>
+<p><code>init</code> и <code>idle</code> не настоящие задачи, но у них есть доступ к ресурсам,
+поэтому они должны учитываться при анализе приоритетов.
+<code>idle</code> учитывается как задача, имеющая логический приоритет <code>0</code>,
+в то время как <code>init</code> полностью исключается из анализа --
+причина этому в том, что <code>init</code> никогда не использует (не нуждается) критические
+секции для доступа к статическим переменным.</p>
+<p>В предыдущем разделе мы показывали, что разделяемые ресусы
+могут быть представлены уникальными ссылками (<code>&amp;mut-</code>) или скрываться за
+прокси в зависимости от того, имеет ли задача к ним доступ.
+Какой из вариантов представляется задаче зависит от приоритета задачи и
+максимального приоритета ресурса.
+Если приоритет задачи такой же, как максимальный приоритет ресурса, тогда
+задача получает уникальную ссылку (<code>&amp;mut-</code>) на память ресурса,
+в противном случае задача получает прокси -- это также касается <code>idle</code>.
+<code>init</code> особеннвй: он всегда получает уникальные ссылки (<code>&amp;mut-</code>) на ресурсы.</p>
+<p>Пример для иллюстрации анализа приоритетов:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[rtic::app(device = ..)]
+mod app {
+    struct Resources {
+        // доступен из `foo` (prio = 1) и `bar` (prio = 2)
+        // -&gt; CEILING = 2
+        #[init(0)]
+        x: u64,
+
+        // доступен из `idle` (prio = 0)
+        // -&gt; CEILING = 0
+        #[init(0)]
+        y: u64,
+    }
+
+    #[init(resources = [x])]
+    fn init(c: init::Context) {
+        // уникальная ссылка, потому что это `init`
+        let x: &amp;mut u64 = c.resources.x;
+
+        // уникальная ссылка, потому что это `init`
+        let y: &amp;mut u64 = c.resources.y;
+
+        // ..
+    }
+
+    // PRIORITY = 0
+    #[idle(resources = [y])]
+    fn idle(c: idle::Context) -&gt; ! {
+        // уникальная ссылка, потому что
+        // приоритет (0) == максимальному приоритету ресурса (0)
+        let y: &amp;'static mut u64 = c.resources.y;
+
+        loop {
+            // ..
+        }
+    }
+
+    #[interrupt(binds = UART0, priority = 1, resources = [x])]
+    fn foo(c: foo::Context) {
+        // прокси-ресурс, потому что
+        // приоритет задач (1) &lt; максимальному приоритету ресурса (2)
+        let x: resources::x = c.resources.x;
+
+        // ..
+    }
+
+    #[interrupt(binds = UART1, priority = 2, resources = [x])]
+    fn bar(c: foo::Context) {
+        // уникальная ссылка, потому что
+        // приоритет задачи (2) == максимальному приоритету ресурса (2)
+        let x: &amp;mut u64 = c.resources.x;
+
+        // ..
+    }
+
+    // ..
+}
+<span class="boring">}
+</span></code></pre></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../internals.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../internals/critical-sections.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
@@ -189,7 +280,7 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../internals.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../internals/critical-sections.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 

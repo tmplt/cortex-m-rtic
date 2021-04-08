@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Введение</a></li><li class="chapter-item expanded "><a href="by-example.html" class="active"><strong aria-hidden="true">1.</strong> RTIC в примерах</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="by-example/app.html"><strong aria-hidden="true">1.1.</strong> Атрибут app</a></li><li class="chapter-item expanded "><a href="by-example/resources.html"><strong aria-hidden="true">1.2.</strong> Ресурсы</a></li><li class="chapter-item expanded "><a href="by-example/tasks.html"><strong aria-hidden="true">1.3.</strong> Задачи</a></li><li class="chapter-item expanded "><a href="by-example/timer-queue.html"><strong aria-hidden="true">1.4.</strong> Очередь таймера</a></li><li class="chapter-item expanded "><a href="by-example/singletons.html"><strong aria-hidden="true">1.5.</strong> Одиночки</a></li><li class="chapter-item expanded "><a href="by-example/types-send-sync.html"><strong aria-hidden="true">1.6.</strong> Типы, Send и Sync</a></li><li class="chapter-item expanded "><a href="by-example/new.html"><strong aria-hidden="true">1.7.</strong> Создание нового проекта</a></li><li class="chapter-item expanded "><a href="by-example/tips.html"><strong aria-hidden="true">1.8.</strong> Советы и хитрости</a></li></ol></li><li class="chapter-item expanded "><a href="internals.html"><strong aria-hidden="true">2.</strong> Под капотом</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="internals/ceilings.html"><strong aria-hidden="true">2.1.</strong> Ceiling analysis</a></li><li class="chapter-item expanded "><a href="internals/tasks.html"><strong aria-hidden="true">2.2.</strong> Диспетчер задач</a></li><li class="chapter-item expanded "><a href="internals/timer-queue.html"><strong aria-hidden="true">2.3.</strong> Очередь таймера</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Введение</a></li><li class="chapter-item expanded "><a href="by-example.html" class="active"><strong aria-hidden="true">1.</strong> RTIC в примерах</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="by-example/app.html"><strong aria-hidden="true">1.1.</strong> Атрибут app</a></li><li class="chapter-item expanded "><a href="by-example/resources.html"><strong aria-hidden="true">1.2.</strong> Ресурсы</a></li><li class="chapter-item expanded "><a href="by-example/tasks.html"><strong aria-hidden="true">1.3.</strong> Программные задачи</a></li><li class="chapter-item expanded "><a href="by-example/timer-queue.html"><strong aria-hidden="true">1.4.</strong> Очередь таймера</a></li><li class="chapter-item expanded "><a href="by-example/types-send-sync.html"><strong aria-hidden="true">1.5.</strong> Типы, Send и Sync</a></li><li class="chapter-item expanded "><a href="by-example/new.html"><strong aria-hidden="true">1.6.</strong> Создание нового проекта</a></li><li class="chapter-item expanded "><a href="by-example/tips.html"><strong aria-hidden="true">1.7.</strong> Советы и хитрости</a></li></ol></li><li class="chapter-item expanded "><a href="migration.html"><strong aria-hidden="true">2.</strong> Инструкции по миграции</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="migration/migration_v5.html"><strong aria-hidden="true">2.1.</strong> v0.5.x на v0.6.x</a></li><li class="chapter-item expanded "><a href="migration/migration_v4.html"><strong aria-hidden="true">2.2.</strong> v0.4.x на v0.5.x</a></li><li class="chapter-item expanded "><a href="migration/migration_rtic.html"><strong aria-hidden="true">2.3.</strong> RTFM на RTIC</a></li></ol></li><li class="chapter-item expanded "><a href="internals.html"><strong aria-hidden="true">3.</strong> Под капотом</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="internals/interrupt-configuration.html"><strong aria-hidden="true">3.1.</strong> Настройка прерываний</a></li><li class="chapter-item expanded "><a href="internals/non-reentrancy.html"><strong aria-hidden="true">3.2.</strong> Нереентерабельнось</a></li><li class="chapter-item expanded "><a href="internals/access.html"><strong aria-hidden="true">3.3.</strong> Контроль доступа</a></li><li class="chapter-item expanded "><a href="internals/late-resources.html"><strong aria-hidden="true">3.4.</strong> Поздние ресурсы</a></li><li class="chapter-item expanded "><a href="internals/critical-sections.html"><strong aria-hidden="true">3.5.</strong> Критические секции</a></li><li class="chapter-item expanded "><a href="internals/ceilings.html"><strong aria-hidden="true">3.6.</strong> Анализ приоритетов</a></li><li class="chapter-item expanded "><a href="internals/tasks.html"><strong aria-hidden="true">3.7.</strong> Программные задачи</a></li><li class="chapter-item expanded "><a href="internals/timer-queue.html"><strong aria-hidden="true">3.8.</strong> Очередь таймера</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -136,6 +136,10 @@
                         </a>
                         
                         
+                        <a href="https://github.com/rtic-rs/cortex-m-rtic" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
                     </div>
                 </div>
 
@@ -164,14 +168,19 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="rtic-в-примерах"><a class="header" href="#rtic-в-примерах">RTIC в примерах</a></h1>
-<p>Эта часть книги представляет фреймворк Real-Time Interrupt-driven Concurrency (RTIC)
-новым пользователям через примеры с растущей сложностью.</p>
-<p>Все примеры в этой книге можно найти в <a href="https://github.com/japaric/cortex-m-rtic">репозитории</a> проекта на GitHub,
-и большинство примеров можно запустить на эмуляторе QEMU, поэтому никакого
-специального оборудования не требуется их выполнять.</p>
-<p>Чтобы запустить примеры на Вашем ноутбуке / ПК, Вам нужна программа
-<code>qemu-system-arm</code>. Инструкции по настройке окружения для разработки
-встраиваемых устройств, в том числе QEMU, Вы можете найти в <a href="https://rust-embedded.github.io/book/intro/install.html">the embedded Rust book</a>.</p>
+<p>В этой части книги фреймворк Real-Time Interrupt-driven Concurrency (RTIC) представляется
+новым пользователям путем прохода по примерам от простых к более сложным.</p>
+<p>Все примеры в этой части книги можно найти в <a href="https://github.com/rtic-rs/cortex-m-rtic">репозитарии</a> проекта.
+Большинство из них можно пройти, запустив их на эмуляторе QEMU без специального оборудования.</p>
+<p>Для запуска примеров на вашем ПК, вам понадобится программа <code>qemu-system-arm</code>.
+В <a href="https://rust-embedded.github.io/book/intro/install.html">the embedded Rust book</a> есть инструкции по настройке среды для эмбеддед разработке,
+в том числе QEMU.</p>
+<h2 id="Примеры-из-реальной-жизни"><a class="header" href="#Примеры-из-реальной-жизни">Примеры из реальной жизни</a></h2>
+<p>Ниже представлены примеры использования RTIC (RTFM) в реальных проектах.</p>
+<h3 id="rtfm-v042"><a class="header" href="#rtfm-v042">RTFM V0.4.2</a></h3>
+<ul>
+<li><a href="https://github.com/etrombly/sandbox/tree/41d423bcdd0d8e42fd46b79771400a8ca349af55">etrombly/sandbox</a>. Аппаратный дзэн-сад, рисующий картинки на песке. Картинки передаются по последовательному порту с помощью G-кода.</li>
+</ul>
 
                     </main>
 

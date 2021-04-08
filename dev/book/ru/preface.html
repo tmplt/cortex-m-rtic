@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html" class="active">Введение</a></li><li class="chapter-item expanded "><a href="by-example.html"><strong aria-hidden="true">1.</strong> RTIC в примерах</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="by-example/app.html"><strong aria-hidden="true">1.1.</strong> Атрибут app</a></li><li class="chapter-item expanded "><a href="by-example/resources.html"><strong aria-hidden="true">1.2.</strong> Ресурсы</a></li><li class="chapter-item expanded "><a href="by-example/tasks.html"><strong aria-hidden="true">1.3.</strong> Задачи</a></li><li class="chapter-item expanded "><a href="by-example/timer-queue.html"><strong aria-hidden="true">1.4.</strong> Очередь таймера</a></li><li class="chapter-item expanded "><a href="by-example/singletons.html"><strong aria-hidden="true">1.5.</strong> Одиночки</a></li><li class="chapter-item expanded "><a href="by-example/types-send-sync.html"><strong aria-hidden="true">1.6.</strong> Типы, Send и Sync</a></li><li class="chapter-item expanded "><a href="by-example/new.html"><strong aria-hidden="true">1.7.</strong> Создание нового проекта</a></li><li class="chapter-item expanded "><a href="by-example/tips.html"><strong aria-hidden="true">1.8.</strong> Советы и хитрости</a></li></ol></li><li class="chapter-item expanded "><a href="internals.html"><strong aria-hidden="true">2.</strong> Под капотом</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="internals/ceilings.html"><strong aria-hidden="true">2.1.</strong> Ceiling analysis</a></li><li class="chapter-item expanded "><a href="internals/tasks.html"><strong aria-hidden="true">2.2.</strong> Диспетчер задач</a></li><li class="chapter-item expanded "><a href="internals/timer-queue.html"><strong aria-hidden="true">2.3.</strong> Очередь таймера</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html" class="active">Введение</a></li><li class="chapter-item expanded "><a href="by-example.html"><strong aria-hidden="true">1.</strong> RTIC в примерах</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="by-example/app.html"><strong aria-hidden="true">1.1.</strong> Атрибут app</a></li><li class="chapter-item expanded "><a href="by-example/resources.html"><strong aria-hidden="true">1.2.</strong> Ресурсы</a></li><li class="chapter-item expanded "><a href="by-example/tasks.html"><strong aria-hidden="true">1.3.</strong> Программные задачи</a></li><li class="chapter-item expanded "><a href="by-example/timer-queue.html"><strong aria-hidden="true">1.4.</strong> Очередь таймера</a></li><li class="chapter-item expanded "><a href="by-example/types-send-sync.html"><strong aria-hidden="true">1.5.</strong> Типы, Send и Sync</a></li><li class="chapter-item expanded "><a href="by-example/new.html"><strong aria-hidden="true">1.6.</strong> Создание нового проекта</a></li><li class="chapter-item expanded "><a href="by-example/tips.html"><strong aria-hidden="true">1.7.</strong> Советы и хитрости</a></li></ol></li><li class="chapter-item expanded "><a href="migration.html"><strong aria-hidden="true">2.</strong> Инструкции по миграции</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="migration/migration_v5.html"><strong aria-hidden="true">2.1.</strong> v0.5.x на v0.6.x</a></li><li class="chapter-item expanded "><a href="migration/migration_v4.html"><strong aria-hidden="true">2.2.</strong> v0.4.x на v0.5.x</a></li><li class="chapter-item expanded "><a href="migration/migration_rtic.html"><strong aria-hidden="true">2.3.</strong> RTFM на RTIC</a></li></ol></li><li class="chapter-item expanded "><a href="internals.html"><strong aria-hidden="true">3.</strong> Под капотом</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="internals/interrupt-configuration.html"><strong aria-hidden="true">3.1.</strong> Настройка прерываний</a></li><li class="chapter-item expanded "><a href="internals/non-reentrancy.html"><strong aria-hidden="true">3.2.</strong> Нереентерабельнось</a></li><li class="chapter-item expanded "><a href="internals/access.html"><strong aria-hidden="true">3.3.</strong> Контроль доступа</a></li><li class="chapter-item expanded "><a href="internals/late-resources.html"><strong aria-hidden="true">3.4.</strong> Поздние ресурсы</a></li><li class="chapter-item expanded "><a href="internals/critical-sections.html"><strong aria-hidden="true">3.5.</strong> Критические секции</a></li><li class="chapter-item expanded "><a href="internals/ceilings.html"><strong aria-hidden="true">3.6.</strong> Анализ приоритетов</a></li><li class="chapter-item expanded "><a href="internals/tasks.html"><strong aria-hidden="true">3.7.</strong> Программные задачи</a></li><li class="chapter-item expanded "><a href="internals/timer-queue.html"><strong aria-hidden="true">3.8.</strong> Очередь таймера</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -136,6 +136,10 @@
                         </a>
                         
                         
+                        <a href="https://github.com/rtic-rs/cortex-m-rtic" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
                     </div>
                 </div>
 
@@ -163,69 +167,85 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 align="center">Real-Time Interrupt-driven Concurrency</h1>
+                        <div align="center"><img width="300" height="300" src="RTIC.svg"></div>
+<div style="font-size: 6em; font-weight: bolder;" align="center">RTIC</div>
+<h1 align="center">Real-Time Interrupt-driven Concurrency</h1>
 <p align="center">Конкурентный фреймворк для создания систем реального времени</p>
 <h1 id="Введение"><a class="header" href="#Введение">Введение</a></h1>
-<p>Эта книга содержит документацию уровня пользователя фреймворком Real-Time Interrupt-driven Concurrency
-(RTIC). Описание API можно найти <a href="../../api/rtic/index.html">здесь</a>.</p>
+<p>Эта книга содержит документацию пользовательского уровня о фреймворке Real-Time Interrupt-driven Concurrency
+(RTIC). Справочник по API можно найти <a href="../../api/">здесь</a>.</p>
+<p>Также известен как Real-Time For the Masses.</p>
+<!--Оригинал данного руководства на [английском].-->
+<!--[английском]: ../en/index.html-->
+<p>Это документация по RTIC версии v0.6.x; за документацией по другим версиям:</p>
+<ul>
+<li>v0.5.x <a href="/0.5">сюда</a>.</li>
+<li>v0.4.x <a href="/0.4">сюда</a>.</li>
+</ul>
+<p><a href="https://crates.io/crates/cortex-m-rtic"><img src="https://img.shields.io/crates/v/cortex-m-rtic" alt="crates.io" /></a>
+<a href="https://docs.rs/cortex-m-rtic"><img src="https://docs.rs/cortex-m-rtic/badge.svg" alt="docs.rs" /></a>
+<a href="https://rtic.rs/"><img src="https://img.shields.io/badge/web-rtic.rs-red.svg?style=flat&amp;label=book&amp;colorB=d33847" alt="book" /></a>
+<a href="https://github.com/rust-lang/rust/releases/tag/1.36.0"><img src="https://img.shields.io/badge/rustc-1.36+-lightgray.svg" alt="rustc" /></a>
+<a href="https://matrix.to/#/#rtic:matrix.org"><img src="https://img.shields.io/matrix/rtic:matrix.org" alt="matrix" /></a>
+<a href="https://hackmd.io/@xmis9JvZT8Gvo9lOEKyZ4Q/SkBJKsjuH"><img src="https://hackmd.io/badge.svg" alt="Meeting notes" /></a></p>
 <h2 id="Возможности"><a class="header" href="#Возможности">Возможности</a></h2>
 <ul>
 <li>
-<p><strong>Задачи</strong> - единица конкуренции <sup class="footnote-reference"><a href="#1">1</a></sup>. Задачи могут <em>запускаться по событию</em>
-(в ответ на асинхронный стимул) или вызываться программно по желанию.</p>
+<p><strong>Задачи</strong> как единица конкуренции <sup class="footnote-reference"><a href="#1">1</a></sup>. Задачи могут <em>запускаться от событий</em>
+(срабатывать в ответ на асинхронные воздействия) или вызываться по запросу программы.</p>
 </li>
 <li>
-<p><strong>Передача сообщений</strong> между задачами. А именно, сообщения можно передавать
+<p><strong>Передача сообщений</strong> между задачами. Если точнее, сообщения можно передавать
 программным задачам в момент вызова.</p>
 </li>
 <li>
-<p><strong>Очередь таймера</strong> <sup class="footnote-reference"><a href="#2">2</a></sup>. Программные задачи можно планировать на запуск в
-определенный момент в будущем. Это свойство можно использовать, чтобы
-реализовывать периодические задачи.</p>
+<p><strong>Очередь таймера</strong> <sup class="footnote-reference"><a href="#2">2</a></sup>. Программные задачи можно планировать на запуск в определенный
+момент в будущем. Эту возможность можно использовать для создания периодических задач.</p>
 </li>
 <li>
-<p>Поддержка приоритетов задач, и таким образом, <strong>вытесняющей многозадачности</strong>.</p>
+<p>Поддержка приоритета задач, и, как результат, <strong>вытесняющей многозадачности</strong>.</p>
 </li>
 <li>
-<p><strong>Эффективное, свободное от гонок данных разделение памяти</strong> через хорошо
-разграниченные критические секции на <em>основе приоритетов</em> <sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
+<p><strong>Эффективное, избавленное от гонок данных, разделение ресурсов</strong> благодаря легкому
+разбиению на <em>основанные на приоритетах</em> критические секции <sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
 </li>
 <li>
-<p><strong>Выполнение без взаимной блокировки задач</strong>, гарантированное на этапе
-компиляции. Это более сильная гарантия, чем предоставляемая
-<a href="https://doc.rust-lang.org/std/sync/struct.Mutex.html">стандартной абстракцией <code>Mutex</code></a>.</p>
+<p><strong>Выполнение без Deadlock</strong>, гарантируемое на этапе компиляции. Данная гарантия строже,
+чем та, что предоставляется <a href="https://doc.rust-lang.org/std/sync/struct.Mutex.html">стандартный абтракцией <code>Mutex</code></a>.</p>
 </li>
 </ul>
 <ul>
 <li>
-<p><strong>Минимальные затраты на диспетчеризацию</strong>. Диспетчер задач имеет
-минимальный след; основная часть работы по диспетчеризации делается аппаратно.</p>
+<p><strong>Минимальные расходы на диспетчеризацию</strong>. Диспетчер задач иммет минимальную программную
+базу; основная работа по диспетчеризации происходит аппаратно.</p>
 </li>
 <li>
-<p><strong>Высокоэффективное использование памяти</strong>: Все задачи используют общий стек
-вызовов и нет сильной зависимости от динамического распределителя памяти.</p>
+<p><strong>Высокоэффективное использование памяти</strong>: Все задачи разделяют единый стек вызовов и
+отсутствует ресурсоемкая зависисмость от динамического аллокатора.</p>
 </li>
 <li>
-<p><strong>Все устройства Cortex-M полностью поддерживаются</strong>.</p>
+<p><strong>Все Cortex-M устройства полностью поддерживаются</strong>.</p>
 </li>
 <li>
-<p>Эта модель задач поддается известному анализу методом WCET (наихудшего
-времени исполнения) и техникам анализа диспетчеризации. (Хотя мы еще не
-разработали для дружественных инструментов для этого).</p>
+<p>К такой модели задач можно применять так называемый анализ WCET (Наихудшего времени выполнения),
+а также техники анализа диспетчеризации. (Хотя мы еще не разработали дружественный к Rust'у
+инструментарий для этого.)</p>
+</li>
+<li>
+<p>Приложения должны быть написаны в редакции 2018.</p>
 </li>
 </ul>
-<h2 id="Требования"><a class="header" href="#Требования">Требования</a></h2>
-<ul>
-<li>
-<p>Rust 1.31.0+</p>
-</li>
-<li>
-<p>Программы нужно писать используя 2018 edition.</p>
-</li>
-</ul>
+<h2 id="a-hrefhttpsrticrsДокументация-пользователяa"><a class="header" href="#a-hrefhttpsrticrsДокументация-пользователяa"><a href="https://rtic.rs">Документация пользователя</a></a></h2>
+<h2 id="a-hrefhttpsrticrsstableapiСправочник-по-apia"><a class="header" href="#a-hrefhttpsrticrsstableapiСправочник-по-apia"><a href="https://rtic.rs/stable/api/">Справочник по API</a></a></h2>
+<h2 id="Чат"><a class="header" href="#Чат">Чат</a></h2>
+<p>Присоединяйтесь к нам, чтобы говорить о RTIC <a href="https://matrix.to/#/#rtic:matrix.org">в Matrix-комнате</a>.</p>
+<p>Записи еженедельных собраний можно найти в <a href="https://hackmd.io/@xmis9JvZT8Gvo9lOEKyZ4Q/SkBJKsjuH">HackMD</a></p>
+<h2 id="Внести-вклад"><a class="header" href="#Внести-вклад">Внести вклад</a></h2>
+<p>Новые возможности и большие изменения следует проводить через процесс RFC в
+<a href="https://github.com/rtic-rs/rfcs">соответствующем RFC-репозитории</a>.</p>
 <h2 id="Благодарности"><a class="header" href="#Благодарности">Благодарности</a></h2>
-<p>Эта библиотека основана на <a href="http://www.rtic-lang.org/">языке RTIC</a>, созданном Embedded
-Systems group в <a href="https://www.ltu.se/?l=en">Техническом Университете Luleå</a>, под рук.
+<p>Этот крейт основан на <a href="http://www.rtfm-lang.org/">языке Real-Time For the Masses</a>, созданном Embedded
+Systems group в <a href="https://www.ltu.se/?l=en">Техническом Университете Luleå</a>, под руководством
 <a href="https://www.ltu.se/staff/p/pln-1.11258?l=en">Prof. Per Lindgren</a>.</p>
 <h2 id="Ссылки"><a class="header" href="#Ссылки">Ссылки</a></h2>
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
@@ -240,20 +260,21 @@ L. M. (2016). Abstract timers and their implementation onto the arm cortex-m
 family of mcus. ACM SIGBED Review, 13(1), 48-53.</p>
 </div>
 <h2 id="Лицензия"><a class="header" href="#Лицензия">Лицензия</a></h2>
-<p>Все исходные тексты (включая примеры кода) лицензированы либо под:</p>
+<p>Все исходные тексты (включая примеры кода) лицензированы под одной из лицензий:</p>
 <ul>
 <li>Apache License, Version 2.0 (<a href="LICENSE-APACHE">LICENSE-APACHE</a> или
 <a href="https://www.apache.org/licenses/LICENSE-2.0">https://www.apache.org/licenses/LICENSE-2.0</a>)</li>
-<li>MIT license (<a href="LICENSE-MIT">LICENSE-MIT</a> or
+<li>MIT license (<a href="LICENSE-MIT">LICENSE-MIT</a> или
 <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>)</li>
 </ul>
-<p>на Ваше усмотрение.</p>
+<p>на ваш выбор.</p>
 <p>Текст книги лицензирован по условиям лицензий
 Creative Commons CC-BY-SA v4.0 (<a href="LICENSE-CC-BY-SA">LICENSE-CC-BY-SA</a> или
 <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">https://creativecommons.org/licenses/by-sa/4.0/legalcode</a>).</p>
-<h3 id="contribution"><a class="header" href="#contribution">Contribution</a></h3>
-<p>Если вы явно не заявляете иначе, любой взнос, преднамеренно представленный
-для включения в эту работу, как определено в лицензии Apache-2.0, лицензируется, как указано выше, без каких-либо дополнительных условий.</p>
+<h3 id="Условия-участия"><a class="header" href="#Условия-участия">Условия участия</a></h3>
+<p>Если вы не укажете этого отдельно, любой вклад, который вы предоставите в эту работу,
+как указано в тексте лицензии Apache-2.0, будет лицензирован по условиям,
+указанным выше, без каких-либо дополнительных условий.</p>
 
                     </main>
 
